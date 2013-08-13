@@ -1,0 +1,31 @@
+{
+    "browser": true,
+    "es5": true,
+    "esnext": true,
+    "bitwise": true,
+//    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "double",
+    "regexp": true,
+    "undef": true,
+    "unused": true,
+    "strict": false,
+    "trailing": true,
+    "smarttabs": true,
+    "onevar": true,
+    "predef": [
+        //not convinced we need all of these
+        "$", "define", "escape", "_gat", "setApiKey", "jQuery",
+        "opera", "google", "unescape", "swfobject", "load",
+        "_cga", "stLight", "_push", "_error", "trackEvent",
+        "trackSocial", "yepnope", "Typekit", "CITY", "Highcharts"
+    ]
+}
+
+

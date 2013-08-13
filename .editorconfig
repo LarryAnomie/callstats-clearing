@@ -1,0 +1,19 @@
+; This file is for unifying City University London Web Team's coding style for different editors and IDEs
+
+; top-most EditorConfig file
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+; Tab indentation
+[*.{js,php,phtml}]
+indent_style = space
+indent_size = 4
+
+[*.scss]
+indent_style = space
+indent_size = 4
