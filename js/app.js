@@ -43,102 +43,102 @@ var APP = (function (w, d, $, _) {
                 hash : "agents"
             },
             {
-                friendlyName : "Clearing SEMS Civil",
+                friendlyName : "SEMS Civil",
                 groupName : "SEMS Civil",
                 hash : "civil"
             },
             {
-                friendlyName : "Clearing SEMS Elec",
+                friendlyName : "SEMS Elec",
                 groupName : "SEMS Elec",
                 hash : "elec"
             },
             {
-                friendlyName : "Clearing SEMS MAE",
+                friendlyName : "SEMS MAE",
                 groupName : "SEMS MAE",
                 hash : "mae"
             },
             {
-                friendlyName : "Clearing SEMS Maths",
+                friendlyName : "SEMS Maths",
                 groupName : "SEMS Maths",
                 hash : "maths"
             },
             {
-                friendlyName : "Clearing Informatics",
+                friendlyName : "Informatics",
                 groupName : "Informatics",
                 hash : "informatics"
             },
             {
-                friendlyName : "Clearing Journalism",
+                friendlyName : "Journalism",
                 groupName : "Journalism",
                 hash : "journalism"
             },
             {
-                friendlyName : "Clearing Music",
+                friendlyName : "Music",
                 groupName : "Music",
                 hash : "music"
             },
             {
-                friendlyName : "Clearing Economics",
+                friendlyName : "Economics",
                 groupName : "Economics",
                 hash : "economics"
             },
             {
-                friendlyName : "Clearing Politics",
+                friendlyName : "Politics",
                 groupName : "Politics",
                 hash : "politics"
             },
             {
-                friendlyName : "Clearing Psychology",
+                friendlyName : "Psychology",
                 groupName : "Psychology",
                 hash : "psychology"
             },
             {
-                friendlyName : "Clearing Sociology",
+                friendlyName : "Sociology",
                 groupName : "Sociology",
                 hash : "sociolgy"
             },
             {
-                friendlyName : "Clearing INTO",
+                friendlyName : "INTO",
                 groupName : "INTO",
                 hash : "into"
             },
             {
-                friendlyName : "Clearing C and I",
+                friendlyName : "CIC - City & Islington College",
                 groupName : "C and I",
                 hash : "city"
             },
             {
-                friendlyName : "Clearing Cass",
+                friendlyName : "Cass",
                 groupName : "CASS",
                 hash : "cass"
             },
             {
-                friendlyName : "Clearing LAW",
+                friendlyName : "Law",
                 groupName : "LAW",
                 hash : "law"
             },
             {
-                friendlyName : "Clearing SHS",
+                friendlyName : "SHS Health Sciences",
                 groupName : "SHS",
                 hash : "shs"
             },
             {
-                friendlyName : "Clearing Radiography",
+                friendlyName : "Radiography",
                 groupName : "Radiography",
                 hash : "radiography"
             },
             {
-                friendlyName : "Clearing Optometry",
+                friendlyName : "Optometry",
                 groupName : "Optometry",
                 hash : "optometry"
             },
             {
-                friendlyName : "Clearing SHS SLT",
+                friendlyName : "SHS SLT",
                 groupName : "SLT",
                 hash : "slt"
             },
             {
-                friendlyName : "Clearing Creative Industries",
+                friendlyName : "Creative Industries",
                 groupName : "Creative Ind",
                 hash : "creative"
             }
@@ -210,17 +210,7 @@ var APP = (function (w, d, $, _) {
          *
         */
         init = function() {
-            APP.loop = setTimer();
-        },
-
-        /*
-         * starts timer running
-         * @return {Number} Unique reference to setTimout instance - needed to clear
-         *
-        */
-        setTimer = function () {
-
-            return setTimeout(
+            APP.loop = setTimeout(
                        $.proxy(APP.getData, APP), // ensures 'this' is the poller obj inside getData, not the window object
                        APP.interval
                     );
@@ -236,12 +226,18 @@ var APP = (function (w, d, $, _) {
 
             $el.addClass("loading");
 
+            // reset interval to 0 so timeout runs straight away on first run with new group
             APP.interval = 0;
 
+            // if we have a timeout running, stop it
             if (APP.loop) {
                 clearTimeout(APP.loop);
             }
+
+            // update reference to group
             APP.group = group.groupName;
+
+            // update title with new group
             $clearingTitle.text(group.friendlyName);
 
             // reset setTimout
