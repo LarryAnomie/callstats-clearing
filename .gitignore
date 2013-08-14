@@ -1,1 +1,3 @@
 *.sass-cache
+/css/src/config.rb
+/css/src/screen.css
