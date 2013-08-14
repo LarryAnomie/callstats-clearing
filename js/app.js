@@ -43,22 +43,22 @@ var APP = (function (w, d, $, _) {
                 hash : "agents"
             },
             {
-                friendlyName : "SEMS Civil",
+                friendlyName : "Civil",
                 groupName : "SEMS Civil",
                 hash : "civil"
             },
             {
-                friendlyName : "SEMS Elec",
+                friendlyName : "Electrical",
                 groupName : "SEMS Elec",
                 hash : "elec"
             },
             {
-                friendlyName : "SEMS MAE",
+                friendlyName : "Mechanical & Aeronautics",
                 groupName : "SEMS MAE",
                 hash : "mae"
             },
             {
-                friendlyName : "SEMS Maths",
+                friendlyName : "Maths",
                 groupName : "SEMS Maths",
                 hash : "maths"
             },
@@ -133,7 +133,7 @@ var APP = (function (w, d, $, _) {
                 hash : "optometry"
             },
             {
-                friendlyName : "SHS SLT",
+                friendlyName : "SHS Speech and Language Therapy",
                 groupName : "SLT",
                 hash : "slt"
             },
@@ -307,7 +307,7 @@ var APP = (function (w, d, $, _) {
                     var dataObj = {
                         answered : 0,                           // number of calls answered
                         missedTotal : 0,                        // number of calls missedTotal
-                        missedTotalClass : "good",              // color class, default to good
+                        missedTotalClass : "null",              // color class, default to good
                         missedCalculated : 0,                   // calculated percentage of calls missed
                         callsTotal : 0,                         // answered + missed
                         agentsAvailable : 0,                    // number of agents available to take call in group
@@ -354,11 +354,7 @@ var APP = (function (w, d, $, _) {
 
                     // we need to work out what class each dataObj value requires
 
-                    // figure missedTotal calls class
-                    if (dataObj.missedTotal > 10) {
-                        // more than 10 missedTotal calls is bad
-                        dataObj.missedTotalClass = "bad";
-                    } else if (dataObj.missedTotal > 4) {
+                    if (dataObj.missedTotal > 4) {
                         // more than 4 is middling
                         dataObj.missedTotalClass = "okay";
                     }
@@ -374,9 +370,7 @@ var APP = (function (w, d, $, _) {
                     }
 
                     // figure out calls in queue class
-                    if (dataObj.inQueue >= 2) {
-                        dataObj.inQueueClass = "bad";
-                    } else if (dataObj.inQueue >= 1) {
+                    if (dataObj.inQueue >= 1) {
                         dataObj.inQueueClass = "okay";
                     }
 
