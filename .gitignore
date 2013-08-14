@@ -1,3 +1,6 @@
-*.sass-cache
+# Ignore sass-cache files.
+*.sass-cache*
+
+# These files get created locally by plugin - ignore them they aren't used
 /css/src/config.rb
 /css/src/screen.css
