@@ -19,7 +19,7 @@ var APP = (function (w, d, $, _) {
         template = [
             "<dl class=\"call-stat primary clearfix\">",
                 "<dt class=\"call-queue\">Calls in queue:</dt>",
-                "<dd class=\"call-queue-stat <%= inQueueClass %>\"><%= inQueue %></dd>",
+                "<dd class=\"circle spin call-queue-stat <%= inQueueClass %>\"><%= inQueue %></dd>",
             "</dl>",
             "<dl class=\"call-stat secondary clearfix\">",
                 "<dt class=\"call-agents-logged-on\">Agents logged on:</dt>",
@@ -377,7 +377,7 @@ var APP = (function (w, d, $, _) {
                     // render the template
                     APP.render(dataObj);
 
-                    APP.init(); // recurse on success
+                    //APP.init(); // recurse on success
 
                 }, // end success
                 error : $.proxy(APP.errorHandler, APP)
